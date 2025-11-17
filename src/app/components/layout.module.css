@@ -1,0 +1,203 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-4) var(--spacing-6);
+  background-color: var(--color-surface-secondary);
+  border-bottom: var(--border-width) solid var(--color-border-default);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+  height: 64px;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-6);
+}
+
+.menuButton {
+  display: none;
+  background: none;
+  border: none;
+  font-size: var(--font-size-2xl);
+  cursor: pointer;
+  color: var(--color-text-title);
+  padding: var(--spacing-2);
+  border-radius: var(--border-radius);
+  transition: background-color 0.2s;
+}
+
+.menuButton:hover {
+  background-color: var(--color-surface-subtle);
+}
+
+.title {
+  font-family: var(--font-family-brand);
+  font-size: var(--font-size-xl);
+  margin: 0;
+  text-decoration: none;
+  color: var(--color-text-title);
+}
+
+.title:hover {
+  color: var(--color-brand-default);
+}
+
+/* Main Navigation */
+.mainNav {
+  display: flex;
+  gap: var(--spacing-1);
+}
+
+.mainNavLink {
+  padding: var(--spacing-2) var(--spacing-3);
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  color: var(--color-text-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  transition: all 0.2s;
+}
+
+.mainNavLink:hover {
+  background-color: var(--color-surface-subtle);
+  color: var(--color-text-title);
+}
+
+.mainNavLinkActive {
+  background-color: var(--color-surface-brand);
+  color: var(--color-brand-default);
+}
+
+/* ========================================
+   SIDEBAR
+   ======================================== */
+.sidebar {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  bottom: 0;
+  width: 250px;
+  background-color: var(--color-surface-secondary);
+  border-right: var(--border-width) solid var(--color-border-default);
+  overflow-y: auto;
+  z-index: 90;
+  transition: transform 0.3s ease;
+}
+
+.nav {
+  padding: var(--spacing-6) 0;
+}
+
+.navSection {
+  margin-bottom: var(--spacing-6);
+}
+
+.navGroup {
+  padding: var(--spacing-2) var(--spacing-6);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  color: var(--color-text-body);
+  margin-bottom: var(--spacing-2);
+}
+
+.navItem {
+  display: block;
+  width: 100%;
+  padding: var(--spacing-2) var(--spacing-6);
+  text-align: left;
+  background: none;
+  border: none;
+  border-left: 3px solid transparent;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-body);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: var(--font-family-sans);
+  text-decoration: none;
+}
+
+.navItem:hover {
+  background-color: var(--color-surface-subtle);
+  color: var(--color-text-title);
+}
+
+.navItemActive {
+  background-color: var(--color-surface-brand);
+  color: var(--color-brand-default);
+  border-left-color: var(--color-brand-default);
+  font-weight: var(--font-weight-semibold);
+}
+
+.overlay {
+  display: none;
+}
+
+/* ========================================
+   MAIN CONTENT
+   ======================================== */
+.main {
+  flex: 1;
+  margin-left: 250px;
+  padding-top: 64px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .menuButton {
+    display: block;
+  }
+
+  .mainNav {
+    display: none;
+  }
+
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebarOpen {
+    transform: translateX(0);
+  }
+
+  .overlay {
+    display: block;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 85;
+  }
+
+  .main {
+    margin-left: 0;
+  }
+
+  .title {
+    font-size: var(--font-size-lg);
+  }
+}

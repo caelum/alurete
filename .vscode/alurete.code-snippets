@@ -1,0 +1,238 @@
+{
+  "Alurete Button": {
+    "prefix": "alurete-button",
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "body": [
+      "<Button",
+      "  variant=\"${1|primary,secondary,ghost,link|}\"",
+      "  size=\"${2|small,medium,large|}\"",
+      ">",
+      "  $3",
+      "</Button>"
+    ],
+    "description": "Insere um Button do Alurete Design System"
+  },
+
+  "Alurete Button com ícones": {
+    "prefix": "alurete-button-icon",
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "body": [
+      "<Button",
+      "  variant=\"${1|primary,secondary,ghost,link|}\"",
+      "  size=\"${2|small,medium,large|}\"",
+      "  startIcon={${3:<Icon />}}",
+      "  endIcon={${4}}",
+      ">",
+      "  $5",
+      "</Button>"
+    ],
+    "description": "Insere um Button com ícones do Alurete Design System"
+  },
+
+  "Alurete Alert": {
+    "prefix": "alurete-alert",
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "body": [
+      "<Alert",
+      "  variant=\"${1|success,error,warning,info|}\"",
+      "  title=\"${2:Título do alerta}\"",
+      "  closable={${3|true,false|}}",
+      ">",
+      "  $4",
+      "</Alert>"
+    ],
+    "description": "Insere um Alert do Alurete Design System"
+  },
+
+  "Alurete Alert com ações": {
+    "prefix": "alurete-alert-actions",
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "body": [
+      "<Alert",
+      "  variant=\"${1|success,error,warning,info|}\"",
+      "  title=\"${2:Título do alerta}\"",
+      "  closable={${3|true,false|}}",
+      "  showActions={true}",
+      "  primaryAction=\"${4:Confirmar}\"",
+      "  secondaryAction=\"${5:Cancelar}\"",
+      "  onPrimaryAction={() => {$6}}",
+      "  onSecondaryAction={() => {$7}}",
+      ">",
+      "  $8",
+      "</Alert>"
+    ],
+    "description": "Insere um Alert com botões de ação do Alurete Design System"
+  },
+
+  "Alurete Avatar": {
+    "prefix": "alurete-avatar",
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "body": [
+      "<Avatar",
+      "  size=\"${1|24,32,40,110|}\"",
+      "  src=\"${2:https://exemplo.com/avatar.jpg}\"",
+      "  alt=\"${3:Descrição do avatar}\"",
+      "/>"
+    ],
+    "description": "Insere um Avatar do Alurete Design System"
+  },
+
+  "Alurete Avatar com iniciais": {
+    "prefix": "alurete-avatar-name",
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "body": [
+      "<Avatar",
+      "  size=\"${1|24,32,40,110|}\"",
+      "  name=\"${2:Nome Completo}\"",
+      "/>"
+    ],
+    "description": "Insere um Avatar com iniciais do Alurete Design System"
+  },
+
+  "Alurete Badge": {
+    "prefix": "alurete-badge",
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "body": [
+      "<Badge",
+      "  variant=\"${1|success,error,warning,info,neutral|}\"",
+      "  appearance=\"${2|solid,outline,subtle|}\"",
+      "  size=\"${3|small,medium,large|}\"",
+      ">",
+      "  $4",
+      "</Badge>"
+    ],
+    "description": "Insere um Badge do Alurete Design System"
+  },
+
+  "Alurete Card": {
+    "prefix": "alurete-card",
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "body": [
+      "<Card",
+      "  variant=\"${1|default,secondary|}\"",
+      "  padding=\"${2|none,small,medium,large|}\"",
+      "  hoverable={${3|false,true|}}",
+      ">",
+      "  $4",
+      "</Card>"
+    ],
+    "description": "Insere um Card do Alurete Design System"
+  },
+
+  "Alurete Card com Header e Footer": {
+    "prefix": "alurete-card-full",
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "body": [
+      "<Card",
+      "  variant=\"${1|default,secondary|}\"",
+      "  padding=\"${2|none,small,medium,large|}\"",
+      "  hoverable={${3|false,true|}}",
+      "  header={${4:<h3>Título</h3>}}",
+      "  footer={${5:<Button>Ação</Button>}}",
+      ">",
+      "  $6",
+      "</Card>"
+    ],
+    "description": "Insere um Card completo com header e footer do Alurete Design System"
+  },
+
+  "Alurete Input": {
+    "prefix": "alurete-input",
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "body": [
+      "<Input",
+      "  label=\"${1:Label do campo}\"",
+      "  placeholder=\"${2:Digite aqui...}\"",
+      "  variant=\"${3|default,error,success|}\"",
+      "  size=\"${4|small,medium,large|}\"",
+      "  fullWidth={${5|false,true|}}",
+      "/>"
+    ],
+    "description": "Insere um Input do Alurete Design System"
+  },
+
+  "Alurete Input com ícones": {
+    "prefix": "alurete-input-icon",
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "body": [
+      "<Input",
+      "  label=\"${1:Label do campo}\"",
+      "  placeholder=\"${2:Digite aqui...}\"",
+      "  variant=\"${3|default,error,success|}\"",
+      "  size=\"${4|small,medium,large|}\"",
+      "  leftIcon={${5:<Icon />}}",
+      "  rightIcon={${6}}",
+      "  helperText=\"${7:Texto de ajuda}\"",
+      "  fullWidth={${8|false,true|}}",
+      "/>"
+    ],
+    "description": "Insere um Input com ícones e helper text do Alurete Design System"
+  },
+
+  "Alurete IconButton": {
+    "prefix": "alurete-iconbutton",
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "body": [
+      "<IconButton",
+      "  icon={${1:<Icon />}}",
+      "  variant=\"${2|primary,secondary,ghost|}\"",
+      "  size=\"${3|xsmall,small,medium,large|}\"",
+      "  label=\"${4:Descrição para acessibilidade}\"",
+      "  onClick={() => {$5}}",
+      "/>"
+    ],
+    "description": "Insere um IconButton do Alurete Design System"
+  },
+
+  "Alurete PlayButton": {
+    "prefix": "alurete-playbutton",
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "body": [
+      "<PlayButton",
+      "  size=\"${1|small,large|}\"",
+      "  device=\"${2|desktop,mobile|}\"",
+      "  onClick={() => {$3}}",
+      ">",
+      "  ${4:Assistir agora}",
+      "</PlayButton>"
+    ],
+    "description": "Insere um PlayButton do Alurete Design System"
+  },
+
+  "Alurete SocialButton": {
+    "prefix": "alurete-socialbutton",
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "body": [
+      "<SocialButton",
+      "  icon={${1:<Icon />}}",
+      "  label=\"${2:Nome da rede social}\"",
+      "  onClick={() => {$3}}",
+      "/>"
+    ],
+    "description": "Insere um SocialButton do Alurete Design System"
+  },
+
+  "Alurete Import Components": {
+    "prefix": "alurete-import",
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "body": [
+      "import { ${1|Button,Alert,Avatar,Badge,Card,Input,IconButton,PlayButton,SocialButton|} } from '@/components/${1|Button,Alert,Avatar,Badge,Card,Input,IconButton,PlayButton,SocialButton|}';$0"
+    ],
+    "description": "Importa componentes do Alurete Design System"
+  },
+
+  "Alurete Import Multiple Components": {
+    "prefix": "alurete-imports",
+    "scope": "typescript,typescriptreact,javascript,javascriptreact",
+    "body": [
+      "import { Button } from '@/components/Button';",
+      "import { Alert } from '@/components/Alert';",
+      "import { Avatar } from '@/components/Avatar';",
+      "import { Badge } from '@/components/Badge';",
+      "import { Card } from '@/components/Card';",
+      "import { Input } from '@/components/Input';",
+      "$0"
+    ],
+    "description": "Importa múltiplos componentes do Alurete Design System"
+  }
+}

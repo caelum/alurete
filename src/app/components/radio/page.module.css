@@ -1,0 +1,86 @@
+.container {
+  padding: var(--spacing-8);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: var(--spacing-10);
+}
+
+.header h1 {
+  font-family: var(--font-title);
+  font-size: var(--font-size-4xl);
+  font-weight: 700;
+  color: var(--color-brand);
+  margin: 0 0 var(--spacing-4) 0;
+}
+
+.header p {
+  font-family: var(--font-body);
+  font-size: var(--font-size-lg);
+  color: var(--color-body);
+  margin: 0;
+}
+
+.section {
+  margin-bottom: var(--spacing-12);
+}
+
+.section h2 {
+  font-family: var(--font-title);
+  font-size: var(--font-size-2xl);
+  font-weight: 600;
+  color: var(--color-body);
+  margin: 0 0 var(--spacing-6) 0;
+}
+
+.examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-6);
+  padding: var(--spacing-6);
+  background-color: var(--color-gray-50);
+  border-radius: var(--border-radius-lg);
+}
+
+.radioGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  padding: var(--spacing-6);
+  background-color: var(--color-gray-50);
+  border-radius: var(--border-radius-lg);
+}
+
+.selectedValue {
+  margin-top: var(--spacing-4);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  color: var(--color-blue-400);
+  font-weight: 500;
+}
+
+.states {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-6);
+  padding: var(--spacing-6);
+  background-color: var(--color-gray-50);
+  border-radius: var(--border-radius-lg);
+}
+
+.stateExample {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.stateLabel {
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-gray-600);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
