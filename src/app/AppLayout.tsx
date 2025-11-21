@@ -25,7 +25,6 @@ const menuItems: MenuItem[] = [
     items: [
       { title: 'Alert', href: '/components/alert' },
       { title: 'Avatar', href: '/components/avatar' },
-      { title: 'Badge', href: '/components/badge' },
       { title: 'Button', href: '/components/button' },
       { title: 'Checkbox', href: '/components/checkbox' },
       { title: 'Input', href: '/components/input' },
@@ -89,9 +88,9 @@ export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
 
   return (
     <div className={styles.appLayout}>
-      <Sidebar 
-        menuItems={menuItems} 
-        isOpen={sidebarOpen} 
+      <Sidebar
+        menuItems={menuItems}
+        isOpen={sidebarOpen}
         onClose={() => setSidebarOpen(false)}
         themeButton={
           <Button variant="secondary" onClick={toggleTheme} size="small">
@@ -99,10 +98,10 @@ export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
           </Button>
         }
       />
-      
+
       <div className={styles.mainWrapper}>
-        <button 
-          className={styles.menuButton} 
+        <button
+          className={styles.menuButton}
           onClick={() => setSidebarOpen(!sidebarOpen)}
           aria-label="Abrir menu"
         >

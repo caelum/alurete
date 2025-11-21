@@ -23,7 +23,6 @@ const componentFiles = [
     'components/button.css',
     'components/card.css',
     'components/alert.css',
-    'components/badge.css',
     'components/input.css'
 ];
 

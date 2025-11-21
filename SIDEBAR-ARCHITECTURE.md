@@ -32,7 +32,6 @@ O menu foi estruturado em **6 categorias principais**, seguindo princípios de:
 📁 Componentes Base
 ├── Alert
 ├── Avatar
-├── Badge
 ├── Button
 ├── Checkbox
 ├── Input
