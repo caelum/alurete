@@ -1,77 +1,83 @@
-# Alurete - Design System
+# Alurete Design System
 
-Sistema de design da Alura construído com Next.js, React e TypeScript. Contém componentes reutilizáveis, tokens de design e documentação de branding.
+Sistema de design da Alura com componentes prontos para usar em aplicações **JSP/Spring** e **React/Next.js**.
 
-## 📋 Sobre
+## 🎯 Para Desenvolvedores Spring (você!)
 
-Este projeto é um design system que inclui:
-- Componentes UI (Button, Card, Avatar, Badge, Alert, etc.)
-- Tokens de design (cores, tipografia)
-- Documentação de componentes
-- Guia de branding
+### Setup Rápido (2 minutos)
 
-## 🚀 Como Rodar
+1. **Baixe o CSS pronto:**
+   ```bash
+   # Peça ao time de front-end ou baixe de:
+   # dist/alurete-design-system.css
+   ```
 
-### Pré-requisitos
+2. **Coloque no seu projeto Spring:**
+   ```
+   src/main/resources/static/css/alurete-design-system.css
+   ```
 
-- Node.js (versão 20 ou superior)
-- npm, yarn, pnpm ou bun
+3. **Adicione no seu JSP/template:**
+   ```jsp
+   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/alurete-design-system.css">
+   ```
 
-### Instalação
+4. **Pronto! Use os componentes:**
+   ```html
+   <button class="ds-button ds-button--primary ds-button--medium">
+       Salvar
+   </button>
+   ```
+
+### 📖 Documentação Completa
+
+- **[GUIA-RAPIDO.md](./GUIA-RAPIDO.md)** - Todos os componentes com exemplos
+- **[public/jsp-demo.html](./public/jsp-demo.html)** - Abra no navegador para ver exemplos visuais
+
+### 🔄 Atualizando o CSS
+
+Quando o time de front-end atualizar o design system:
+1. Receba o novo `alurete-design-system.css`
+2. Substitua o arquivo em `static/css/`
+3. Limpe o cache do navegador (Ctrl+Shift+R)
+
+---
+
+## ⚛️ Para Desenvolvedores Front-end (React/Next.js)
+
+### Rodar o projeto
 
 ```bash
-# Instalar dependências
 npm install
-```
-
-### Executar em Desenvolvimento
-
-```bash
-# Iniciar servidor de desenvolvimento
 npm run dev
 ```
 
-Abra [http://localhost:3000](http://localhost:3000) no navegador.
+Abra [http://localhost:3000](http://localhost:3000)
 
-### Build para Produção
+### Gerar CSS para Spring
 
 ```bash
-# Criar build de produção
-npm run build
-
-# Executar build de produção
-npm start
+npm run build:static
 ```
 
-## 🛠️ Scripts Disponíveis
+Isso cria `dist/alurete-design-system.css` → enviar para o time back-end.
 
-- `npm run dev` - Inicia o servidor de desenvolvimento
-- `npm run build` - Cria build de produção
-- `npm run build:static` - Gera CSS bundle para JSP/Spring
-- `npm start` - Executa a aplicação em modo produção
-- `npm run lint` - Executa o linter
+### Scripts
 
-## 📖 Documentação
+- `npm run dev` - Servidor de desenvolvimento
+- `npm run build` - Build de produção
+- `npm run build:static` - **Gera CSS para JSP/Spring**
+- `npm run lint` - Linter
 
-- **[GUIA-RAPIDO.md](./GUIA-RAPIDO.md)** - Guia completo de uso (JSP/Spring e React)
-- **[public/jsp-demo.html](./public/jsp-demo.html)** - Exemplos visuais dos componentes
-
-
-## 🧩 Estrutura do Projeto
-
-- `/src/components` - Componentes reutilizáveis do design system
-- `/src/app` - Páginas e documentação dos componentes
-- `/src/features` - Funcionalidades específicas (lesson, etc.)
-- `/src/styles` - Estilos globais e tokens CSS
-- `design-tokens.json` - Tokens de design
+---
 
 ## 📦 Tecnologias
 
 - [Next.js 15](https://nextjs.org/)
 - [React 18](https://react.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
-- [Lucide React](https://lucide.dev/) - Ícones
+- CSS Modules + Global CSS (BEM)
 
 ---
 
-Desenvolvido por [Alura](https://www.alura.com.br/)
+**Dúvidas?** Consulte o [GUIA-RAPIDO.md](./GUIA-RAPIDO.md) ou abra uma issue.

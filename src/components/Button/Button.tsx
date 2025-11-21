@@ -11,10 +11,17 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ variant = 'primary', size = 'medium', startIcon, endIcon, children, className, ...props }, ref) => {
+    const buttonClasses = [
+      styles.button,
+      styles[variant],
+      styles[size],
+      className
+    ].filter(Boolean).join(' ');
+
     return (
       <button
         ref={ref}
-        className={`${styles.button} ${styles[variant]} ${styles[size]} ${className || ''}`}
+        className={buttonClasses}
         {...props}
       >
         {startIcon && <span className={styles.icon}>{startIcon}</span>}

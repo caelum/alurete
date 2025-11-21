@@ -1,5 +1,57 @@
 .container {
+<<<<<<< HEAD
   width: 100%;
+=======
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-6) var(--spacing-8);
+  background-color: var(--color-surface-secondary);
+  border-bottom: var(--border-width) solid var(--color-border-default);
+}
+
+.title {
+  font-family: var(--font-family-brand);
+  font-size: var(--font-size-2xl);
+  margin: 0;
+  color: var(--color-text-title);
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-6);
+}
+
+.mainNav {
+  display: none; /* Removido pois agora temos sidebar */
+  gap: var(--spacing-2);
+}
+
+.navLink {
+  padding: var(--spacing-2) var(--spacing-4);
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  color: var(--color-text-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  transition: all 0.2s;
+}
+
+.navLink:hover {
+  background-color: var(--color-surface-subtle);
+  color: var(--color-text-title);
+>>>>>>> a128a0a3e50a7f5889715be730c8e0457c114468
 }
 
 /* ========================================

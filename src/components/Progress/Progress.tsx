@@ -42,14 +42,6 @@ export const Progress: React.FC<ProgressProps> = ({
   className,
 }) => {
   const percentage = Math.min(Math.max((value / max) * 100, 0), 100);
-  
-  const containerClasses = [
-    styles.container,
-    styles[size],
-    className,
-  ]
-    .filter(Boolean)
-    .join(' ');
 
   const getLabel = () => {
     if (!showLabel) return null;
@@ -62,7 +54,7 @@ export const Progress: React.FC<ProgressProps> = ({
   };
 
   return (
-    <div className={containerClasses}>
+    <div className={`${styles.container} ${styles[size]} ${className || ''}`}>
       <div className={styles.track}>
         <div 
           className={styles.fill}
@@ -74,7 +66,9 @@ export const Progress: React.FC<ProgressProps> = ({
         />
       </div>
       {showLabel && (
-        <span className={styles.label}>{getLabel()}</span>
+        <span className={styles.label}>
+          {getLabel()}
+        </span>
       )}
     </div>
   );
