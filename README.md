@@ -43,6 +43,55 @@ Quando o time de front-end atualizar o design system:
 
 ---
 
+## 🎨 Para Product Designers
+
+### Ver os Componentes Visuais
+
+1. **Abra no navegador:** `public/jsp-demo.html`
+   - Veja todos os componentes renderizados
+   - Teste dark mode
+   - Copie o HTML se precisar
+
+2. **Tokens de Design:**
+   - **Cores:** Veja em `src/styles/tokens.css` (linhas 204-275)
+   - **Espaçamento:** 8px, 16px, 24px, 32px... (múltiplos de 8)
+   - **Tipografia:** Open Sans (corpo), Chakra Petch (títulos)
+   - **Bordas:** 4px, 8px, 12px, 16px, 24px, pill (9999px)
+
+### Propor Mudanças
+
+**Quer mudar uma cor/espaçamento/componente?**
+1. **Discuta a mudança** com o time
+2. **Faça a alteração no Figma** (projeto Alurete)
+   - Mude as variáveis lá
+   - Atualize os componentes
+3. **Exporte os tokens:** `design-tokens.json` do Figma usando o plugin "Alurete Exporta JSON" (disponível no Notion de PD)
+4. **Importe aqui:** Substitua o `design-tokens.json` na raiz do projeto
+5. **Avise o time de dev** para atualizar o CSS
+
+### Workflow de Sincronização
+
+```
+Figma (Alurete) → design-tokens.json → Design System (código)
+     ↓                    ↓                      ↓
+  Variáveis          Exportar              Importar
+  Componentes                            npm run build:static
+```
+
+**Importante:** O Figma é a **fonte da verdade**. Sempre atualize lá primeiro!
+
+### Checklist de Design
+
+Ao criar componentes no Figma (Alurete), use:
+- ✅ Variáveis do Figma (não valores hardcoded)
+- ✅ Espaçamento em múltiplos de 8px
+- ✅ Fontes: Open Sans ou Chakra Petch
+- ✅ Border radius: 4, 8, 12, 16, 24 ou pill
+- ✅ Estados: default, hover, active, disabled, error
+
+
+---
+
 ## ⚛️ Para Desenvolvedores Front-end (React/Next.js)
 
 ### Rodar o projeto
