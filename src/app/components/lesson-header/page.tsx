@@ -173,29 +173,7 @@ export default function LessonHeaderPage() {
         </div>
       </section>
 
-      <section className={styles.section}>
-        <h2>Exemplo de Uso</h2>
-        <div className={styles.codeExample}>
-          <pre>{`import { LessonHeader } from '@/features/lesson';
 
-export default function LessonPage() {
-  return (
-    <>
-      <LessonHeader
-        lessonTitle="Framer: usando IA para criar um site"
-        userName="Alice"
-        onBack={() => router.push('/cursos')}
-        onUserMenuClick={() => setMenuOpen(true)}
-      />
-      
-      {/* Resto da página da aula */}
-      <VideoPlayer />
-      <LessonSidebar />
-    </>
-  );
-}`}</pre>
-        </div>
-      </section>
     </div>
   );
 }

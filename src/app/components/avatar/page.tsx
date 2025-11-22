@@ -1,190 +1,108 @@
 'use client';
 
+import React, { useState } from 'react';
 import { Avatar } from '@/components/Avatar';
 import styles from './page.module.css';
 
 export default function AvatarPage() {
+  const [size, setSize] = useState<'24' | '32' | '40' | '110'>('40');
+  const [name, setName] = useState('Sarah Anderson');
+  const [src, setSrc] = useState('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop');
+  const [copied, setCopied] = useState(false);
+
+  const codeSnippet = `<Avatar
+  size="${size}"
+  name="${name}"${src ? `\n  src="${src}"` : ''}
+/>`;
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(codeSnippet);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <div className={styles.page}>
       <div className={styles.header}>
         <h1>Avatar</h1>
         <p className={styles.description}>
           Componente de avatar para representar usuários com imagem ou iniciais do nome.
+          Use o playground abaixo para customizar.
         </p>
       </div>
 
-      <section className={styles.section}>
-        <h2>Com Foto</h2>
-        <p className={styles.hint}>
-          Avatares podem exibir uma imagem do usuário.
-        </p>
-        <div className={styles.componentGroup}>
-          <div className={styles.row}>
-            <div className={styles.item}>
-              <Avatar
-                size="24"
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop"
-                name="Sarah Anderson"
-              />
-              <span className={styles.label}>24px</span>
-            </div>
-            <div className={styles.item}>
-              <Avatar
-                size="32"
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop"
-                name="Sarah Anderson"
-              />
-              <span className={styles.label}>32px</span>
-            </div>
-            <div className={styles.item}>
-              <Avatar
-                size="40"
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop"
-                name="Sarah Anderson"
-              />
-              <span className={styles.label}>40px</span>
-            </div>
-            <div className={styles.item}>
-              <Avatar
-                size="110"
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop"
-                name="Sarah Anderson"
-              />
-              <span className={styles.label}>110px (com sombra)</span>
-            </div>
+      <div className={styles.playground}>
+        <div className={styles.controls}>
+          <div className={styles.controlGroup}>
+            <label htmlFor="size">Tamanho</label>
+            <select
+              id="size"
+              value={size}
+              onChange={(e) => setSize(e.target.value as any)}
+              className={styles.select}
+            >
+              <option value="24">24px (Small)</option>
+              <option value="32">32px (Medium)</option>
+              <option value="40">40px (Large)</option>
+              <option value="110">110px (XLarge)</option>
+            </select>
           </div>
-        </div>
-      </section>
 
-      <section className={styles.section}>
-        <h2>Com Iniciais</h2>
-        <p className={styles.hint}>
-          Quando não há imagem, o avatar exibe as iniciais do nome do usuário.
-        </p>
-        <div className={styles.componentGroup}>
-          <div className={styles.row}>
-            <div className={styles.item}>
-              <Avatar size="24" name="Sarah Anderson" />
-              <span className={styles.label}>24px</span>
-            </div>
-            <div className={styles.item}>
-              <Avatar size="32" name="Sarah Anderson" />
-              <span className={styles.label}>32px</span>
-            </div>
-            <div className={styles.item}>
-              <Avatar size="40" name="Sarah Anderson" />
-              <span className={styles.label}>40px</span>
-            </div>
-            <div className={styles.item}>
-              <Avatar size="110" name="Sarah Anderson" />
-              <span className={styles.label}>110px</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.section}>
-        <h2>Tamanhos</h2>
-        <p className={styles.hint}>
-          Quatro tamanhos disponíveis: <code>24</code>, <code>32</code>, <code>40</code> e <code>110</code> pixels.
-        </p>
-        <div className={styles.componentGroup}>
-          <h3>Comparação de Tamanhos</h3>
-          <div className={styles.row} style={{ alignItems: 'center' }}>
-            <Avatar size="24" name="John Doe" />
-            <Avatar size="32" name="John Doe" />
-            <Avatar size="40" name="John Doe" />
-            <Avatar size="110" name="John Doe" />
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.section}>
-        <h2>Exemplos de Uso</h2>
-        
-        <div className={styles.componentGroup}>
-          <h3>Lista de Usuários</h3>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <Avatar
-                size="40"
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop"
-                name="Sarah Anderson"
-              />
-              <div>
-                <div style={{ fontWeight: 600 }}>Sarah Anderson</div>
-                <div style={{ fontSize: '14px', color: 'var(--color-text-secondary)' }}>
-                  sarah.anderson@example.com
-                </div>
-              </div>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <Avatar size="40" name="John Smith" />
-              <div>
-                <div style={{ fontWeight: 600 }}>John Smith</div>
-                <div style={{ fontSize: '14px', color: 'var(--color-text-secondary)' }}>
-                  john.smith@example.com
-                </div>
-              </div>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <Avatar
-                size="40"
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop"
-                name="Michael Brown"
-              />
-              <div>
-                <div style={{ fontWeight: 600 }}>Michael Brown</div>
-                <div style={{ fontSize: '14px', color: 'var(--color-text-secondary)' }}>
-                  michael.brown@example.com
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className={styles.componentGroup}>
-          <h3>Grupo de Avatares</h3>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <Avatar
-              size="32"
-              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop"
-              name="Sarah Anderson"
+          <div className={styles.controlGroup}>
+            <label htmlFor="name">Nome (para iniciais/alt)</label>
+            <input
+              id="name"
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className={styles.input}
             />
-            <Avatar size="32" name="John Smith" />
-            <Avatar
-              size="32"
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop"
-              name="Michael Brown"
-            />
-            <Avatar size="32" name="Emma Wilson" />
-            <Avatar
-              size="32"
-              src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop"
-              name="Olivia Davis"
+          </div>
+
+          <div className={styles.controlGroup}>
+            <label htmlFor="src">URL da Imagem (Opcional)</label>
+            <input
+              id="src"
+              type="text"
+              value={src}
+              onChange={(e) => setSrc(e.target.value)}
+              placeholder="Deixe vazio para ver as iniciais"
+              className={styles.input}
             />
           </div>
         </div>
 
-        <div className={styles.componentGroup}>
-          <h3>Perfil de Usuário</h3>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
-            <Avatar
-              size="110"
-              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop"
-              name="Sarah Anderson"
-            />
-            <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: '24px', fontWeight: 700, marginBottom: '4px' }}>
-                Sarah Anderson
-              </div>
-              <div style={{ fontSize: '16px', color: 'var(--color-text-secondary)' }}>
-                Product Designer
-              </div>
+        <div className={styles.previewArea}>
+          <div className={styles.previewHeader}>
+            Preview
+          </div>
+          <div className={styles.preview}>
+            <div className={styles.previewContent}>
+              <Avatar
+                size={size}
+                name={name}
+                src={src}
+              />
             </div>
           </div>
+
+          <div className={styles.codeSection}>
+            <div className={styles.codeHeader}>
+              <div className={styles.windowControls}>
+                <div className={`${styles.dot} ${styles.dotRed}`} />
+                <div className={`${styles.dot} ${styles.dotYellow}`} />
+                <div className={`${styles.dot} ${styles.dotGreen}`} />
+              </div>
+              <button onClick={handleCopy} className={styles.copyButton}>
+                {copied ? 'Copiado!' : 'Copiar Código'}
+              </button>
+            </div>
+            <pre className={styles.codeBlock}>
+              {codeSnippet}
+            </pre>
+          </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 }

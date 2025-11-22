@@ -1,125 +1,137 @@
 'use client';
 
+import React, { useState } from 'react';
 import { Alert } from '@/components/Alert';
-import styles from '../button/page.module.css';
+import styles from './page.module.css';
 
 export default function AlertPage() {
+  const [variant, setVariant] = useState<'success' | 'error' | 'warning' | 'info'>('info');
+  const [title, setTitle] = useState('');
+  const [message, setMessage] = useState('Este é um exemplo de alerta interativo.');
+  const [showActions, setShowActions] = useState(false);
+  const [closable, setClosable] = useState(true);
+  const [copied, setCopied] = useState(false);
+
+  const codeSnippet = `<Alert
+  variant="${variant}"${title ? `\n  title="${title}"` : ''}${closable ? '' : '\n  closable={false}'}${showActions ? '\n  showActions' : ''}
+>
+  ${message}
+</Alert>`;
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(codeSnippet);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <div className={styles.page}>
       <div className={styles.header}>
         <h1>Alert</h1>
         <p className={styles.description}>
-          Mensagens de feedback para comunicar informações importantes ao usuário com diferentes níveis de severidade.
+          Mensagens de feedback para comunicar informações importantes ao usuário.
+          Use o playground abaixo para testar as diferentes variações.
         </p>
       </div>
 
-      <section className={styles.section}>
-        <h2>Variantes</h2>
-        <p className={styles.hint}>
-          Quatro variantes disponíveis: <code>success</code>, <code>error</code>, <code>warning</code> e <code>info</code>.
-        </p>
-        <div className={styles.componentGroup}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
-            <Alert variant="warning" showActions>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            </Alert>
-            <Alert variant="info" showActions>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            </Alert>
-            <Alert variant="error" showActions>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            </Alert>
-            <Alert variant="success" showActions>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            </Alert>
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.section}>
-        <h2>Sem Botões de Ação</h2>
-        <p className={styles.hint}>
-          Alerts simples sem botões de ação.
-        </p>
-        <div className={styles.componentGroup}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
-            <Alert variant="success">
-              Operação realizada com sucesso!
-            </Alert>
-            <Alert variant="error">
-              Ocorreu um erro ao processar sua solicitação.
-            </Alert>
-            <Alert variant="warning">
-              Atenção: Esta ação não pode ser desfeita.
-            </Alert>
-            <Alert variant="info">
-              Você tem 3 notificações não lidas.
-            </Alert>
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.section}>
-        <h2>Com Título Customizado</h2>
-        <p className={styles.hint}>
-          Substitua o título padrão usando a prop <code>title</code>.
-        </p>
-        <div className={styles.componentGroup}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
-            <Alert variant="success" title="Operação Concluída" showActions>
-              Seu perfil foi atualizado com sucesso.
-            </Alert>
-            <Alert variant="error" title="Erro de Validação" showActions>
-              Por favor, preencha todos os campos obrigatórios.
-            </Alert>
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.section}>
-        <h2>Sem Botão de Fechar</h2>
-        <p className={styles.hint}>
-          Use <code>closable=false</code> para remover o botão de fechar.
-        </p>
-        <div className={styles.componentGroup}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
-            <Alert variant="info" closable={false} showActions>
-              Este alerta não pode ser fechado pelo usuário.
-            </Alert>
-            <Alert variant="warning" closable={false}>
-              Mensagem importante que não deve ser dispensada.
-            </Alert>
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.section}>
-        <h2>Com Ações Customizadas</h2>
-        <p className={styles.hint}>
-          Personalize os textos dos botões de ação.
-        </p>
-        <div className={styles.componentGroup}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
-            <Alert 
-              variant="warning" 
-              title="Confirmar Exclusão"
-              showActions
-              primaryAction="EXCLUIR"
-              secondaryAction="CANCELAR"
+      <div className={styles.playground}>
+        <div className={styles.controls}>
+          <div className={styles.controlGroup}>
+            <label htmlFor="variant">Variante</label>
+            <select
+              id="variant"
+              value={variant}
+              onChange={(e) => setVariant(e.target.value as any)}
+              className={styles.select}
             >
-              Esta ação não pode ser desfeita. Deseja continuar?
-            </Alert>
-            <Alert 
-              variant="info" 
-              showActions
-              primaryAction="VER DETALHES"
-              secondaryAction="FECHAR"
-            >
-              Você tem 5 novas mensagens não lidas.
-            </Alert>
+              <option value="info">Info</option>
+              <option value="success">Success</option>
+              <option value="warning">Warning</option>
+              <option value="error">Error</option>
+            </select>
+          </div>
+
+          <div className={styles.controlGroup}>
+            <label htmlFor="title">Título (Opcional)</label>
+            <input
+              id="title"
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder="Título padrão da variante"
+              className={styles.input}
+            />
+          </div>
+
+          <div className={styles.controlGroup}>
+            <label htmlFor="message">Mensagem</label>
+            <input
+              id="message"
+              type="text"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              className={styles.input}
+            />
+          </div>
+
+          <div className={styles.toggles}>
+            <label className={styles.checkbox}>
+              <input
+                type="checkbox"
+                checked={showActions}
+                onChange={(e) => setShowActions(e.target.checked)}
+              />
+              Mostrar Ações
+            </label>
+
+            <label className={styles.checkbox}>
+              <input
+                type="checkbox"
+                checked={closable}
+                onChange={(e) => setClosable(e.target.checked)}
+              />
+              Botão Fechar
+            </label>
           </div>
         </div>
-      </section>
+
+        <div className={styles.previewArea}>
+          <div className={styles.previewHeader}>
+            Preview
+          </div>
+          <div className={styles.preview}>
+            <div className={styles.previewContent}>
+              <Alert
+                variant={variant}
+                title={title}
+                closable={closable}
+                showActions={showActions}
+                onClose={() => console.log('Closed')}
+                onPrimaryAction={() => console.log('Primary action')}
+                onSecondaryAction={() => console.log('Secondary action')}
+              >
+                {message}
+              </Alert>
+            </div>
+          </div>
+
+          <div className={styles.codeSection}>
+            <div className={styles.codeHeader}>
+              <div className={styles.windowControls}>
+                <div className={`${styles.dot} ${styles.dotRed}`} />
+                <div className={`${styles.dot} ${styles.dotYellow}`} />
+                <div className={`${styles.dot} ${styles.dotGreen}`} />
+              </div>
+              <button onClick={handleCopy} className={styles.copyButton}>
+                {copied ? 'Copiado!' : 'Copiar Código'}
+              </button>
+            </div>
+            <pre className={styles.codeBlock}>
+              {codeSnippet}
+            </pre>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

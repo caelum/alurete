@@ -40,7 +40,7 @@ export default function ExerciseOptionPage() {
 
       <section className={styles.section}>
         <h2 className={styles.sectionTitle}>Estados do Componente</h2>
-        
+
         <div className={styles.stateDemo}>
           <h3 className={styles.stateDemoTitle}>Default</h3>
           <ExerciseOption
@@ -82,7 +82,7 @@ export default function ExerciseOptionPage() {
       <section className={styles.section}>
         <h2 className={styles.sectionTitle}>Exercício Interativo</h2>
         <p className={styles.description}>Selecione uma opção e clique em "Verificar" para ver o feedback.</p>
-        
+
         <div className={styles.exerciseContainer}>
           <div className={styles.question}>
             <h3 className={styles.questionTitle}>Qual é a diferença entre SITEMAP e WIREFRAME?</h3>
@@ -126,7 +126,7 @@ export default function ExerciseOptionPage() {
 
           <div className={styles.actions}>
             {!isSubmitted ? (
-              <button 
+              <button
                 className={styles.submitButton}
                 onClick={handleSubmit}
                 disabled={!selectedOption}
@@ -134,7 +134,7 @@ export default function ExerciseOptionPage() {
                 Verificar Resposta
               </button>
             ) : (
-              <button 
+              <button
                 className={styles.resetButton}
                 onClick={handleReset}
               >
@@ -189,24 +189,7 @@ export default function ExerciseOptionPage() {
         </div>
       </section>
 
-      <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>Exemplo de Uso</h2>
-        <div className={styles.codeExample}>
-          <pre className={styles.codeExamplePre}>{`import { ExerciseOption } from '@/features/lesson';
 
-const [selected, setSelected] = useState<string | null>(null);
-const [submitted, setSubmitted] = useState(false);
-
-<ExerciseOption
-  letter="A"
-  text="Texto da alternativa aqui..."
-  state={submitted ? (letter === 'A' ? 'success' : 'error') : 'default'}
-  onClick={() => setSelected('A')}
-  explanationText="Explicação caso esteja errada"
-  disabled={submitted}
-/>`}</pre>
-        </div>
-      </section>
     </div>
   );
 }

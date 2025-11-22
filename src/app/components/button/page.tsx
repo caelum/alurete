@@ -152,82 +152,14 @@ export default function ButtonPage() {
         </div>
       </section>
 
-      <section className={styles.section}>
-        <h2>Exemplos de Uso</h2>
-        <div className={styles.componentGroup}>
-          <h3>Formulário</h3>
-          <div className={styles.row}>
-            <Button variant="secondary">Cancelar</Button>
-            <Button variant="primary">Salvar</Button>
-          </div>
-        </div>
 
-        <div className={styles.componentGroup}>
-          <h3>Card de Ação</h3>
-          <div className={styles.row}>
-            <Button variant="primary" size="large">Começar Agora</Button>
-          </div>
-        </div>
-
-        <div className={styles.componentGroup}>
-          <h3>Botões com Ícones</h3>
-          <div className={styles.row}>
-            <div className={styles.item}>
-              <Button variant="primary" startIcon={<PencilIcon />}>
-                Editar
-              </Button>
-              <span className={styles.label}>Ícone no início</span>
-            </div>
-            <div className={styles.item}>
-              <Button variant="secondary" endIcon={<DownloadIcon />}>
-                Download
-              </Button>
-              <span className={styles.label}>Ícone no final</span>
-            </div>
-            <div className={styles.item}>
-              <Button variant="ghost" startIcon={<PencilIcon />} endIcon={<DownloadIcon />}>
-                Ações
-              </Button>
-              <span className={styles.label}>Ambos ícones</span>
-            </div>
-          </div>
-        </div>
-
-        <div className={styles.componentGroup}>
-          <h3>Botões Link</h3>
-          <div className={styles.row}>
-            <div className={styles.item}>
-              <Button variant="link">Ver mais</Button>
-              <span className={styles.label}>Link simples</span>
-            </div>
-            <div className={styles.item}>
-              <Button variant="link" startIcon={<PencilIcon />}>
-                Editar perfil
-              </Button>
-              <span className={styles.label}>Link com ícone</span>
-            </div>
-            <div className={styles.item}>
-              <Button variant="link" startIcon={<PencilIcon />} endIcon={<DownloadIcon />}>
-                Download
-              </Button>
-              <span className={styles.label}>Link com ícones</span>
-            </div>
-            <div className={styles.item}>
-              <Button variant="link" disabled>
-                Indisponível
-              </Button>
-              <span className={styles.label}>Link desabilitado</span>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <section className={styles.section}>
         <h2>Botões Apenas Ícone</h2>
         <p className={styles.hint}>
           Botões circulares que contêm apenas um ícone, ideais para toolbars e ações compactas.
         </p>
-        
+
         <div className={styles.componentGroup}>
           <h3>Variantes</h3>
           <div className={styles.row}>
@@ -288,7 +220,7 @@ export default function ButtonPage() {
         <p className={styles.hint}>
           Botões especiais para login/compartilhamento em redes sociais.
         </p>
-        
+
         <div className={styles.componentGroup}>
           <div className={styles.row}>
             <div className={styles.item}>
@@ -330,7 +262,7 @@ export default function ButtonPage() {
         <p className={styles.hint}>
           Botões especiais com ícone de play, ideais para conteúdo de vídeo.
         </p>
-        
+
         <div className={styles.componentGroup}>
           <h3>Tamanhos e Devices</h3>
           <div className={styles.row}>
